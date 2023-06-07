@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using P04WeatherForecastAPI.Client.Models;
+using P04WeatherForecastAPI.Client.Services.SpeechService;
 using P04WeatherForecastAPI.Client.Services.WeatherServices;
 using P06Shop.Shared.MessageBox;
 using P06Shop.Shared.Services.ProductService;
@@ -21,6 +22,8 @@ namespace P04WeatherForecastAPI.Client.ViewModels
         private readonly IProductService _productService;
         private readonly ProductDetailsView _productDetailsView;
         private readonly IMessageDialogService _messageDialogService;
+        private readonly ISpeechService _speechService;
+
         public ObservableCollection<Product> Products { get; set; }
 
 
@@ -30,9 +33,11 @@ namespace P04WeatherForecastAPI.Client.ViewModels
 
 
 
-        public ProductsViewModel(IProductService productService, ProductDetailsView productDetailsView, IMessageDialogService messageDialogService)
+        public ProductsViewModel(IProductService productService, ProductDetailsView productDetailsView,
+            IMessageDialogService messageDialogService, ISpeechService speechService)
         {
             _messageDialogService = messageDialogService;
+            _speechService = speechService;
             _productDetailsView = productDetailsView;
             _productService = productService;
             Products = new ObservableCollection<Product>();
@@ -132,6 +137,12 @@ namespace P04WeatherForecastAPI.Client.ViewModels
             SelectedProduct = new Product(); 
         }
 
+        [RelayCommand]
+        public async Task RecognizeVoice()
+        {
+            string recognizedText = await _speechService.RecognizeAsync();
+            SelectedProduct.Description = recognizedText;
+        }
 
     }
 }

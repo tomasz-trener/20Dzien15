@@ -27,7 +27,12 @@
             <TextBox Text="{Binding Title}" Grid.Row="0" Grid.Column="1"/>
 
             <TextBlock Text="Description:" Grid.Row="1" Grid.Column="0"/>
-            <TextBox Text="{Binding Description}" Grid.Row="1" Grid.Column="1"/>
+
+            <DockPanel Grid.Row="1" Grid.Column="1" >
+                <Button Command="{Binding DataContext.RecognizeVoiceCommand}" DockPanel.Dock="Right" Content="Speak"></Button>
+                <TextBox DockPanel.Dock="Right" Text="{Binding Description}" />
+            </DockPanel>
+            
 
             <TextBlock Text="Barcode:" Grid.Row="2" Grid.Column="0"/>
             <TextBox Text="{Binding Barcode}" Grid.Row="2" Grid.Column="1"/>

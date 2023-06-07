@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using P04WeatherForecastAPI.Client.Configuration;
 using P04WeatherForecastAPI.Client.MessageBox;
 using P04WeatherForecastAPI.Client.Services.ProductServices;
+using P04WeatherForecastAPI.Client.Services.SpeechService;
 using P04WeatherForecastAPI.Client.Services.WeatherServices;
 using P04WeatherForecastAPI.Client.ViewModels;
 using P06Shop.Shared.MessageBox;
@@ -68,6 +69,7 @@ namespace P04WeatherForecastAPI.Client
             services.AddSingleton<IFavoriteCityService, FavoriteCityService>();
             services.AddSingleton<IProductService, ProductService>();
             services.AddSingleton<IMessageDialogService, WpfMesageDialogService>();
+            services.AddSingleton<ISpeechService, SpeechService>();
         }
 
         private void ConfigureViewModels(IServiceCollection services)

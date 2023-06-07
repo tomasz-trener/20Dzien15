@@ -29,7 +29,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Azure profile": {
+    "AzureProfile": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
@@ -49,3 +49,5 @@
     }
   }
 }
+
+//dotnet run --lunch-profile AzureProfile
