@@ -37,8 +37,8 @@ namespace P05Shop.API.Controllers
         {
             return new WeatherForecast[2]
             {
-                new WeatherForecast(){ Summary="one"},
-                new WeatherForecast(){ Summary="two"},
+                new WeatherForecast(){ Summary="x1one"},
+                new WeatherForecast(){ Summary="x2two"},
             };
         }
 

@@ -1,17 +1,5 @@
- 1) dodalismy baze dany do api - code first 
- 2) dodalismy migracje i zaktualizowalismy baze 
-  - uzywalismy fluent api do konfiguracji schematu tabel 
-
-3) dodalismy dane testowe , trzeba bylo dodac stale ziarno do generatora produktow 
-4) przygotowalismy serwis CRUD w API 
-5) stwrzoylismy endpointy w kontrolerze CRUD zgodnie z REST 
- - ukrywamy bledy serwera poprzez try caatch w serwisie i zwracamy serviceREsponce z nasza wiadomoscia 
-
- 6) w kliencie stworzlismy serwis CRUD wysylajacy rzadaniado aPI 
-
- 7) jak cos nie dzialalo to chcemy sprawdzic czy klient wysyla rzadanie zgodnie z naczymi oczekiwaniami : fiddler
- 
- 8) dodalismy widoki w xaml to wyswietlania produkow i operacji CRUD z rozbudowaniem viewmodelu 
-
-
-
+1) przenieslismy baze do azure (pamietac o firefall - dac dostep po ip)    PAAS
+2) prznieslismy api do chmury (app service ) - logstream do loowania bledow  PAAS
+3) stworzyslimy rozpoznawanie mowy korzystajac z gotowej apliakacji (speech services ) SAAS 
+4) postawienie maszyny wirtualnej - wnindows server -> dodanie IIS , zainstalowanie pakuetu hostowania apliacji core , otwozrenie portów na maszynie i azure IAAS
+5) CD - uzuwajac githuba autmatyczny deployment do azure 
