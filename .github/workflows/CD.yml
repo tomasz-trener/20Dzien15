@@ -15,7 +15,7 @@ jobs:
   # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3 # przygotowujemy środowisku
       - name: Setup .NET Core SDK
-        uses: actions/setup-dotnet@v2.1.0
+        uses: actions/setup-dotnet@v3.2.0
         with:
           dotnet-version: 7.0 # w danej wersji
       - name: Restore dependences # robimy restore
