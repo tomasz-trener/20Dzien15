@@ -20,7 +20,7 @@ namespace P05Shop.API.Controllers
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> GetMyOwnName()
+        public IEnumerable<WeatherForecast> GetMyOwnName() 
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
