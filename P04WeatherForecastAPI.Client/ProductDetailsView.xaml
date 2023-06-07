@@ -30,7 +30,7 @@
 
             <DockPanel Grid.Row="1" Grid.Column="1" >
                 <Button Command="{Binding DataContext.RecognizeVoiceCommand, RelativeSource={RelativeSource AncestorType={x:Type local:ProductDetailsView}}}" DockPanel.Dock="Right" Content="Speak"></Button>
-                <TextBox DockPanel.Dock="Right" Text="{Binding Description}" />
+                <TextBox DockPanel.Dock="Right" Text="{Binding Description, Mode=TwoWay}" />
             </DockPanel>
             
 
