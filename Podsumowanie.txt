@@ -2,4 +2,4 @@
 2) prznieslismy api do chmury (app service ) - logstream do loowania bledow  PAAS
 3) stworzyslimy rozpoznawanie mowy korzystajac z gotowej apliakacji (speech services ) SAAS 
 4) postawienie maszyny wirtualnej - wnindows server -> dodanie IIS , zainstalowanie pakuetu hostowania apliacji core , otwozrenie portów na maszynie i azure IAAS
-5) CD - uzuwajac githuba autmatyczny deployment do azure 
+5) CD - uzuwajac githuba autmatyczny deployment do azure  (pamietac o <EnableWindowsTargeting>true</EnableWindowsTargeting> zeby dzialaly actions dla wpf )

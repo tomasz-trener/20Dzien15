@@ -28,13 +28,15 @@ namespace P04WeatherForecastAPI.Client
         IConfiguration _configuration;
         public App()
         {
+            string s = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
             //wczytanie appsettings.json do konfiguracji 
             var builder = new ConfigurationBuilder()
               .AddUserSecrets<App>()
               .SetBasePath(Directory.GetCurrentDirectory())
-              .AddJsonFile("appsettings.json");
+              .AddJsonFile("appsettings.json")
+              .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production"}.json", optional: true);
             _configuration = builder.Build();
-
+            // pamietac o lunch profiles w visual studio! 
 
 
             var serviceCollection = new ServiceCollection();

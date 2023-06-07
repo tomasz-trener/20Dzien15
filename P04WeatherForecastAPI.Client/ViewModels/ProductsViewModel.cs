@@ -141,8 +141,10 @@ namespace P04WeatherForecastAPI.Client.ViewModels
         public async Task RecognizeVoice()
         {
             string recognizedText = await _speechService.RecognizeAsync();
-            
-            SelectedProduct.Description = recognizedText;  
+
+            SelectedProduct.Description = recognizedText;
+
+            SelectedProduct = new Product() { DescriptionTest = "Test" };
         }
 
     }
