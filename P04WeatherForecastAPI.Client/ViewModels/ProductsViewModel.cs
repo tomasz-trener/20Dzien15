@@ -142,8 +142,7 @@ namespace P04WeatherForecastAPI.Client.ViewModels
         {
             string recognizedText = await _speechService.RecognizeAsync();
             
-            SelectedProduct.Description = recognizedText;
-            
+            SelectedProduct.Description = recognizedText;  
         }
 
     }
