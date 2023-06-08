@@ -48,13 +48,12 @@ namespace P04WeatherForecastAPI.Client.ViewModels
             Products.Clear();
             var productsResult = await _productService.GetProductsAsync();
             if (productsResult.Success)
-            {
                 foreach (var p in productsResult.Data)
-                {
                     Products.Add(p);
-                }
-            }
+            else
+                _messageDialogService.ShowMessage(productsResult.Message);
         }
+
 
         public async Task CreateProduct()
         {

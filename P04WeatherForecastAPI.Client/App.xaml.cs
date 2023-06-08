@@ -48,7 +48,7 @@ namespace P04WeatherForecastAPI.Client
         private void ConfigureServices(IServiceCollection services)
         {
             var appSettingsSection = ConfigureAppSettings(services);
-            ConfigureAppServices(services);
+            ConfigureAppServices(services, appSettingsSection);
             ConfigureViewModels(services);
             ConfigureViews(services);
             ConfigureHttpClients(services, appSettingsSection);
@@ -64,14 +64,15 @@ namespace P04WeatherForecastAPI.Client
             return appSettingsSection;
         }
 
-        private void ConfigureAppServices(IServiceCollection services)
+        private void ConfigureAppServices(IServiceCollection services, AppSettings appSettings)
         {
+            
             // konfiguracja serwisów 
             services.AddSingleton<IAccuWeatherService, AccuWeatherService>();
             services.AddSingleton<IFavoriteCityService, FavoriteCityService>();
             services.AddSingleton<IProductService, ProductService>();
             services.AddSingleton<IMessageDialogService, WpfMesageDialogService>();
-            services.AddSingleton<ISpeechService, SpeechService>();
+            services.AddSingleton<ISpeechService>(_ => new SpeechService(appSettings.SpeechSettings));
         }
 
         private void ConfigureViewModels(IServiceCollection services)

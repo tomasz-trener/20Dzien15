@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "P04WeatherForecastAPI.Client": {
+    "Azure": {
       "commandName": "Project",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Production"

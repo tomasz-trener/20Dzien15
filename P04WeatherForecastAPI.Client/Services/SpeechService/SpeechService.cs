@@ -1,5 +1,6 @@
 ﻿using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
+using P04WeatherForecastAPI.Client.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +11,16 @@ namespace P04WeatherForecastAPI.Client.Services.SpeechService
 {
     public class SpeechService : ISpeechService
     {
+        private readonly SpeechSettings _speechSettings;
 
+        public SpeechService(SpeechSettings speechSettings)
+        {
+            _speechSettings = speechSettings;
+        }
         // Microsoft.CognitiveServices.Speech
         public async Task<string> RecognizeAsync()
         {
-            string apiKey = "54d6b06f171346fdba73204de336869c";
-            var conf =SpeechConfig.FromSubscription(apiKey, "northeurope");
+            var conf = SpeechConfig.FromSubscription(_speechSettings.SpeechApiKey, _speechSettings.SpeechRegion);
             return await RecognizeFromMic(conf);
         }
 

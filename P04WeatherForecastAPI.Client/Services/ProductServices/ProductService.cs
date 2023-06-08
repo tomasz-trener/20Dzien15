@@ -62,10 +62,22 @@ namespace P04WeatherForecastAPI.Client.Services.ProductServices
         public async Task<ServiceResponse<List<Product>>> GetProductsAsync()
         {
             var response = await _httpClient.GetAsync(_appSettings.BaseProductEndpoint.GetAllProductsEndpoint);
+            if (!response.IsSuccessStatusCode)
+                return new ServiceResponse<List<Product>>
+                {
+                    Success = false,
+                    Message = "HTTP request failed"
+                };
+
             var json = await response.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<ServiceResponse<List<Product>>>(json);
+            var result = JsonConvert.DeserializeObject<ServiceResponse<List<Product>>>(json)
+                ?? new ServiceResponse<List<Product>> { Success = false, Message = "Deserialization failed" };
+
+            result.Success = result.Success && result.Data != null;
+
             return result;
         }
+
 
         // wersja 1 
         //public async Task<ServiceResponse<Product>> UpdateProductAsync(Product product)
