@@ -144,7 +144,7 @@ namespace P04WeatherForecastAPI.Client.ViewModels
 
             SelectedProduct.Description = recognizedText;
 
-            SelectedProduct = new Product() { DescriptionTest = "Test" };
+            //SelectedProduct = new Product() { DescriptionTest = "Test" };
         }
 
     }
