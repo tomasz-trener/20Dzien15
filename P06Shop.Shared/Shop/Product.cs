@@ -36,7 +36,6 @@ namespace P06Shop.Shared.Shop
 
         public DateTime ReleaseDate { get; set; }
 
-        public string DescriptionTest { get; set; }
 
         private string _description;
 
